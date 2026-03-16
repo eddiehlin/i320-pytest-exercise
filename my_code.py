@@ -1,6 +1,8 @@
 import pytest
 
 def fix_phone_num(phone_num_to_fix):
+  if not phone_num_to_fix.isdigit() or len(phone_num_to_fix) != 10:
+     raise ValueError("Invalid phone number format (not numbers or more than 10 numbers)")
   # given "5125558823". Split the parts, then recombine and return
   area_code = phone_num_to_fix[0:3] # 512 (first three digits)
   three_part = phone_num_to_fix[3:6] # 555 (next three digits)
